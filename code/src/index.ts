@@ -10,11 +10,14 @@ export * from './integrations/index.js';
 export * from './enhanced/index.js';
 export * from './compression/index.js';
 export * from './storage/index.js';
+export * from './versioning/index.js';
 
 // Convenience exports for common use cases
 import { createEnhancedFileSystem as createEnhancedFileSystemBase } from './semantic/compatibility-adapter.js';
 import { DiskSemanticBackend } from './semantic/disk-semantic-backend.js';
+import { VersionedDiskSemanticBackend } from './versioning/versioned-disk-semantic-backend.js';
 import type { FileSystemOptions } from './core/types.js';
+import type { VersionedSemanticConfig } from './versioning/versioned-disk-semantic-backend.js';
 
 /**
  * Convenience factory function to create an enhanced filesystem with disk backend
@@ -25,6 +28,14 @@ export function createFileSystem(rootPath: string, _options?: FileSystemOptions)
   const semanticBackend = new DiskSemanticBackend(rootPath);
   
   return createEnhancedFileSystemBase(semanticBackend);
+}
+
+/**
+ * Create a filesystem with git versioning support
+ */
+export function createVersionedFileSystem(rootPath: string, config?: VersionedSemanticConfig) {
+  const backend = new VersionedDiskSemanticBackend(rootPath, config);
+  return createEnhancedFileSystemBase(backend);
 }
 
 // Re-export types for convenience

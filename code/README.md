@@ -20,6 +20,7 @@ Inspired by the research in ["LLM-based Semantic File System for Large Codebases
 - 💾 **Multiple Backends**: Memory and persistent disk backends with semantic indexing
 - 🔒 **Security Controls**: Path validation, sandboxing, and permission systems
 - 🏢 **Dynamic Working Directory**: Runtime-configurable paths for multi-project support (NEW)
+- 🔀 **Git Versioning**: Optional automatic git commits for all file operations with task-based branching (NEW)
 
 ## Installation
 
@@ -366,6 +367,66 @@ if (searchResult.files.length === 0 && searchResult.suggestions) {
 ```
 
 This feature helps LLMs find what they're looking for without multiple retry attempts, significantly reducing API costs and improving response times.
+
+### Git Versioning Support (NEW)
+
+PackFS now includes optional git versioning that automatically tracks all file operations. This is perfect for AI agents that need to:
+- Track changes across complex multi-file operations
+- Group related changes into logical tasks
+- Maintain a complete audit trail
+- Rollback changes if needed
+
+```typescript
+import { createVersionedFileSystem } from 'packfs-core';
+
+// Create a filesystem with automatic git versioning
+const fs = createVersionedFileSystem('/workspace/project', {
+  versioning: {
+    enabled: true,
+    autoCommit: true,  // Automatically commit every file operation
+    userInfo: {
+      name: 'AI Assistant',
+      email: 'ai@example.com'
+    },
+    commitMessageTemplate: '[{{operation}}] {{path}} - {{taskId}}'
+  }
+});
+
+// All operations are automatically versioned
+await fs.executeNaturalLanguage('Create a new feature module');
+// Commits: "[create] src/features/newFeature.ts - "
+
+// Task-based development with branches
+const backend = fs.getSemanticBackend();
+await backend.startTask({
+  id: 'feature-auth',
+  description: 'Implement authentication system',
+  branch: 'feature/authentication'  // Optional custom branch name
+});
+
+// All changes are tracked to the task branch
+await fs.executeNaturalLanguage('Create auth middleware and user model');
+await fs.executeNaturalLanguage('Add login and signup endpoints');
+
+// Complete and merge the task
+await backend.completeTask('feature-auth', {
+  merge: true,
+  createSummary: true
+});
+```
+
+**Key Features**:
+- **Automatic Versioning**: Every file operation creates a git commit
+- **Task Management**: Group related changes on feature branches
+- **Smart Commit Messages**: Configurable templates with context
+- **Zero Configuration**: Works out of the box, initializes git repos as needed
+- **Manual Control**: Disable auto-commit for manual version control
+
+**Use Cases**:
+- **AI Pair Programming**: Track all changes made by AI assistants
+- **Multi-Agent Collaboration**: Each agent works on its own branch
+- **Audit Trail**: Complete history of all file operations
+- **Experimentation**: Try changes on branches, merge only what works
 
 ## API Reference
 
