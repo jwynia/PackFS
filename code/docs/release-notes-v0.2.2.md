@@ -4,12 +4,13 @@
 
 ### Git Versioning Support
 
-PackFS now includes optional git versioning that automatically tracks all file operations. This powerful feature enables:
+PackFS now includes optional git versioning that automatically tracks all file operations using isomorphic-git, a pure JavaScript/TypeScript implementation that works without requiring git to be installed. This powerful feature enables:
 
 - **Automatic Commits**: Every file operation can automatically create a git commit
 - **Task-Based Development**: Group related changes on feature branches
 - **Smart Commit Messages**: Configurable templates with operation context
 - **Zero Configuration**: Works out of the box, initializes git repos as needed
+- **Cross-Platform**: Pure TypeScript implementation works on Windows, macOS, and Linux without dependencies
 
 #### Quick Start
 

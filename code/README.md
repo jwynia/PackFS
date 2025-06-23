@@ -370,7 +370,7 @@ This feature helps LLMs find what they're looking for without multiple retry att
 
 ### Git Versioning Support (NEW)
 
-PackFS now includes optional git versioning that automatically tracks all file operations. This is perfect for AI agents that need to:
+PackFS now includes optional git versioning that automatically tracks all file operations using a pure TypeScript implementation (no git binary required). This is perfect for AI agents that need to:
 - Track changes across complex multi-file operations
 - Group related changes into logical tasks
 - Maintain a complete audit trail

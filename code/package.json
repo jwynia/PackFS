@@ -134,8 +134,10 @@
   "dependencies": {
     "@mastra/core": "0.10.6",
     "@mongodb-js/zstd": "^1.2.2",
+    "@types/pako": "2.0.3",
     "@yarnpkg/fslib": "3.1.2",
     "@yarnpkg/libzip": "3.2.1",
+    "isomorphic-git": "1.31.0",
     "lz4": "^0.6.5",
     "zod": "3.25.67"
   }

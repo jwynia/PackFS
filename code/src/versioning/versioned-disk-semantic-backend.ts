@@ -1,5 +1,5 @@
 import { DiskSemanticBackend } from '../semantic/disk-semantic-backend.js';
-import { GitWrapper } from './git-wrapper.js';
+import { IsomorphicGitWrapper } from './isomorphic-git-wrapper.js';
 import { Logger } from '../core/logger.js';
 import type {
   ContentUpdateIntent,
@@ -28,7 +28,7 @@ export interface VersionedSemanticConfig extends Partial<SemanticConfig> {
  * Disk-based semantic backend with git versioning support
  */
 export class VersionedDiskSemanticBackend extends DiskSemanticBackend {
-  private git?: GitWrapper;
+  private git?: IsomorphicGitWrapper;
   private versioningConfig?: VersioningConfig;
   private activeTasks: Map<string, TaskState> = new Map();
   private currentTaskId?: string;
@@ -55,7 +55,7 @@ export class VersionedDiskSemanticBackend extends DiskSemanticBackend {
     if (this.versioningConfig?.enabled) {
       this.versionedLogger.info('Initializing git versioning');
       
-      this.git = new GitWrapper(this.versionedBasePath, {
+      this.git = new IsomorphicGitWrapper(this.versionedBasePath, {
         userInfo: this.versioningConfig.userInfo,
         defaultBranch: this.versioningConfig.defaultBranch
       });

@@ -307,7 +307,7 @@ describe('VersionedDiskSemanticBackend', () => {
       const result = await backend.completeTask('test-task');
       
       expect(result.success).toBe(true);
-      expect(result.commits).toHaveLength(2);
+      expect(result.commits).toHaveLength(3); // Initial task commit + 2 file commits
     });
     
     it('should prevent multiple active tasks', async () => {
