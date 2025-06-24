@@ -1,0 +1,43 @@
+{
+  "columns": [
+    {
+      "type": "string",
+      "title": "path"
+    },
+    {
+      "type": "buffer",
+      "title": "data"
+    },
+    {
+      "type": "boolean",
+      "title": "isDirectory"
+    },
+    {
+      "type": "string",
+      "title": "parent"
+    },
+    {
+      "type": "object",
+      "title": "metadata"
+    },
+    {
+      "type": "number",
+      "title": "version"
+    },
+    {
+      "type": "array",
+      "title": "tags"
+    },
+    {
+      "type": "string",
+      "title": "checksum"
+    }
+  ],
+  "indexes": [
+    "path",
+    "parent",
+    "metadata.mtime",
+    "tags"
+  ],
+  "collectionName": "files"
+}

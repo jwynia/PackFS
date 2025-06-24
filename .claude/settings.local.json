@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(npm install)",
+      "Bash(npm run build:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npm test)",
+      "Bash(npm test:*)",
+      "Bash(npm run lint)",
+      "Bash(cp:*)",
+      "Bash(grep:*)",
+      "Bash(find:*)",
+      "Bash(npm run:*)",
+      "Bash(npm pack:*)",
+      "Bash(npm publish:*)",
+      "Bash(chmod:*)",
+      "Bash(npm whoami:*)",
+      "Bash(node:*)",
+      "Bash(mv:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git tag:*)",
+      "Bash(git push:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm view:*)",
+      "Bash(npx jest:*)",
+      "Bash(ls:*)",
+      "Bash(true)",
+      "Bash(git rm:*)",
+      "Bash(npm version:*)",
+      "Bash(rm:*)",
+      "Bash(git checkout:*)",
+      "Bash(sed:*)",
+      "Bash(npm info:*)",
+      "WebFetch(domain:isomorphic-git.org)"
+    ],
+    "deny": []
+  }
+}

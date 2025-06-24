@@ -1,0 +1,16 @@
+{
+  "columns": [
+    {
+      "type": "string",
+      "title": "name"
+    },
+    {
+      "type": "number",
+      "title": "age"
+    }
+  ],
+  "indexes": [
+    "name"
+  ],
+  "collectionName": "test"
+}
