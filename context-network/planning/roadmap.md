@@ -152,7 +152,6 @@ Building upon the MVP foundation, Phase 2 focuses on hardening security features
 - **Timeline:** April 1 - June 30, 2024
 - **Theme:** Cloud support and ecosystem growth
 - **Features:**
-  - CamaDB Backend: MongoDB-like embedded database - **Priority: High** (see [architecture/camadb_backend_design.md])
   - AWS S3 Backend: Full S3 compatibility - **Priority: High**
   - Azure Blob Backend: Azure storage support - **Priority: High**
   - Google Cloud Backend: GCS integration - **Priority: Medium**

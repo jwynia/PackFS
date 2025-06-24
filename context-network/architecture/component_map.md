@@ -364,12 +364,11 @@ flowchart TD
 1. **Mastra Adapter**: Native tool factory integration with intent-based API (ADR-004)
 
 **Planned Additions**:
-1. **CamaDB Backend**: MongoDB-like embedded database storage with query capabilities (see [architecture/camadb_backend_design.md])
-2. **Cloud Backend**: AWS S3, Azure Blob, Google Cloud Storage support
-3. **Binary Processor**: Apache Tika integration for 1000+ file formats
-4. **Semantic Kernel Adapter**: Microsoft Semantic Kernel integration
-5. **Caching Layer**: Three-tier caching system
-6. **Virtual Filesystem**: Complete filesystem virtualization
+1. **Cloud Backend**: AWS S3, Azure Blob, Google Cloud Storage support
+2. **Binary Processor**: Apache Tika integration for 1000+ file formats
+3. **Semantic Kernel Adapter**: Microsoft Semantic Kernel integration
+4. **Caching Layer**: Three-tier caching system
+5. **Virtual Filesystem**: Complete filesystem virtualization
 
 **Refactoring Plans**:
 1. Extract common backend logic to base class

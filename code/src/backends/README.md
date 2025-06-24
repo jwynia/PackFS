@@ -18,32 +18,12 @@ PackFS supports multiple storage backends to suit different use cases and enviro
 - **Performance**: Good, limited by disk I/O
 - **Features**: Sandboxing, path validation
 
-### 3. CamaDB Backend (New)
-- **Class**: `CamaDBBackend`
-- **Use Case**: Document-based storage with query capabilities
-- **Persistence**: Multiple adapters (fs, IndexedDB, localStorage, in-memory)
-- **Performance**: Good for queries, moderate for basic operations
-- **Features**: 
-  - MongoDB-style queries
-  - File tagging
-  - Multi-environment support
-  - Rich metadata storage
-
-### 4. Simplified CamaDB Backend
-- **Class**: `SimpleCamaDBBackend`
-- **Use Case**: Fallback implementation with basic persistence
-- **Persistence**: JSON file storage
-- **Performance**: Moderate
-- **Features**: Basic CRUD operations with persistence
-
 ## Choosing a Backend
 
 | Backend | Best For | Avoid When |
 |---------|----------|------------|
 | Memory | Unit tests, caching | Need persistence |
-| Disk | Production file storage | Need advanced queries |
-| CamaDB | Advanced search, multi-environment | Simple file storage |
-| SimpleCamaDB | Basic persistence with portability | High performance needed |
+| Disk | Production file storage | Need in-memory only |
 
 ## Implementation Guide
 

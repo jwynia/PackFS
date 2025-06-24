@@ -100,6 +100,9 @@ describe('DiskSemanticBackend', () => {
       await fs.writeFile(join(testDir, 'app.js'), 'const app = require("express")();');
       await fs.writeFile(join(testDir, 'README.md'), '# Test Project');
       
+      // Small delay to ensure files are created before initialization
+      await new Promise(resolve => setTimeout(resolve, 10));
+      
       const newBackend = new DiskSemanticBackend(testDir);
       await newBackend.initialize();
       

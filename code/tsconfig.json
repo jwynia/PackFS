@@ -26,5 +26,5 @@
     "allowUnreachableCode": false
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts", "**/example.ts", "src/enhanced/EnhancedPackFS.ts", "src/benchmarks/**/*"]
+  "exclude": ["node_modules", "dist", "**/*.test.ts", "**/*.spec.ts", "**/example.ts", "src/enhanced/EnhancedPackFS.ts", "src/benchmarks/**/*", "src/experimental/**/*"]
 }
