@@ -1,0 +1,43 @@
+🤖 LLM AGENTS: QUICK START GUIDE
+
+Multiple projects have reported agents going down wrong usage paths.
+Here are the most common successful patterns:
+
+📚 FULL GUIDE: See LLM_AGENT_GUIDE.md or 
+   https://github.com/jwynia/PackFS/blob/main/LLM_AGENT_GUIDE.md
+
+🚀 QUICKSTART - COPY/PASTE READY:
+
+1. MASTRA (Recommended):
+   import { createMastraSemanticToolSuite } from 'packfs-core/mastra';
+   const { fileReader, fileWriter } = createMastraSemanticToolSuite({
+     workingDirectory: '/your/project/path'
+   });
+   const result = await fileReader.execute({ query: "read the README file" });
+   console.log(result.content); // Direct access in v0.2.3!
+
+2. LANGCHAIN:
+   import { createLangChainSemanticFilesystemTool } from 'packfs-core/langchain';
+   const tool = createLangChainSemanticFilesystemTool({
+     workingDirectory: '/your/project/path'
+   });
+   const result = await tool.func("read the README file");
+
+3. LLAMAINDEX:
+   import { createLlamaIndexSemanticFilesystemTool } from 'packfs-core/llamaindex';
+   const tool = createLlamaIndexSemanticFilesystemTool({
+     workingDirectory: '/your/project/path'
+   });
+   const result = await tool.call({ query: "read the README file" });
+
+⚠️  COMMON PITFALLS:
+   ❌ result.data.content  (v0.1.x - doesn't work in v0.2.3)
+   ✅ result.content       (v0.2.3 - direct access)
+   
+   ❌ workingDirectory: './project'  (relative paths)
+   ✅ workingDirectory: '/full/path' (absolute paths)
+   
+   ❌ import from 'packfs-core'      (wrong for framework tools)
+   ✅ import from 'packfs-core/mastra' (framework-specific)
+
+📖 Full troubleshooting: LLM_AGENT_GUIDE.md

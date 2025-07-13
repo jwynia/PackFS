@@ -1,7 +1,7 @@
 {
   "name": "packfs-core",
   "version": "0.2.3",
-  "description": "Semantic filesystem operations for LLM agent frameworks with natural language understanding",
+  "description": "Semantic filesystem operations for LLM agent frameworks with natural language understanding. See LLM_AGENT_GUIDE.md for copy-paste examples.",
   "keywords": [
     "llm",
     "agent",
@@ -79,7 +79,9 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "LLM_AGENT_GUIDE.md",
+    "QUICK_START_LLM.txt"
   ],
   "scripts": {
     "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types",
@@ -97,6 +99,7 @@
     "typecheck": "tsc --noEmit",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build",
+    "postinstall": "node -e \"console.log('\\n🤖 PackFS for LLM Agents - Installation Complete!\\n\\n📚 AGENTS: Multiple projects reported wrong usage paths. Avoid backtracking:\\n   📖 Local guide: cat LLM_AGENT_GUIDE.md\\n   🌐 Online: https://github.com/jwynia/PackFS/blob/main/LLM_AGENT_GUIDE.md\\n   ⚡ Quick ref: cat QUICK_START_LLM.txt\\n   🛠️  Help: npm run help\\n\\n✨ Copy-paste examples for Mastra, LangChain, LlamaIndex, KaibanJS\\n')\"" 
     "release": "node scripts/release.js patch",
     "release:minor": "node scripts/release.js minor",
     "release:major": "node scripts/release.js major",
@@ -106,6 +109,8 @@
     "release:beta": "npm version prerelease --preid=beta && npm publish --tag beta",
     "release:safe": "node scripts/test-and-publish.js",
     "release:safe:dry": "node scripts/test-and-publish.js --dry-run",
+    "help": "node -e \"console.log('\\n🚀 PackFS Quick Help:\\n\\n   For LLM Agents: cat LLM_AGENT_GUIDE.md\\n   Or visit: https://github.com/jwynia/PackFS/blob/main/LLM_AGENT_GUIDE.md\\n\\n   Build: npm run build\\n   Test: npm test\\n   Examples: ls examples/\\n')\"",
+    "guide": "cat LLM_AGENT_GUIDE.md",
     "update-context": "node scripts/update-context-network.js",
     "extract-docs": "node scripts/extract-external-docs.js",
     "feature-status": "node scripts/feature-status.js",

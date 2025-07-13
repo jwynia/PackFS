@@ -21,6 +21,12 @@ Inspired by the research in ["LLM-based Semantic File System for Large Codebases
 - 🔒 **Security Controls**: Path validation, sandboxing, and permission systems
 - 🏢 **Dynamic Working Directory**: Runtime-configurable paths for multi-project support (NEW)
 
+## 🚀 For LLM Agents: Quick Start Guide
+
+**New to PackFS? Multiple projects have reported agents going down wrong usage paths.**
+
+👉 **[LLM Agent Usage Guide](./LLM_AGENT_GUIDE.md)** - Copy-paste examples, common patterns, and pitfall solutions specifically designed for AI agents.
+
 ## Installation
 
 ```bash
