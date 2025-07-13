@@ -99,7 +99,7 @@
     "typecheck": "tsc --noEmit",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build",
-    "postinstall": "node -e \"console.log('\\n🤖 PackFS for LLM Agents - Installation Complete!\\n\\n📚 AGENTS: Multiple projects reported wrong usage paths. Avoid backtracking:\\n   📖 Local guide: cat LLM_AGENT_GUIDE.md\\n   🌐 Online: https://github.com/jwynia/PackFS/blob/main/LLM_AGENT_GUIDE.md\\n   ⚡ Quick ref: cat QUICK_START_LLM.txt\\n   🛠️  Help: npm run help\\n\\n✨ Copy-paste examples for Mastra, LangChain, LlamaIndex, KaibanJS\\n')\"" 
+    "postinstall": "echo \"\n🤖 PackFS for LLM Agents - Installation Complete!\n\n📚 AGENTS: Multiple projects reported wrong usage paths. Avoid backtracking:\n   📖 Local guide: cat LLM_AGENT_GUIDE.md\n   🌐 Online: https://github.com/jwynia/PackFS/blob/main/LLM_AGENT_GUIDE.md\n   ⚡ Quick ref: cat QUICK_START_LLM.txt\n   🛠️  Help: npm run help\n\n✨ Copy-paste examples for Mastra, LangChain, LlamaIndex, KaibanJS\n\"",
     "release": "node scripts/release.js patch",
     "release:minor": "node scripts/release.js minor",
     "release:major": "node scripts/release.js major",
