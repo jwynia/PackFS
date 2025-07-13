@@ -18,6 +18,12 @@ Inspired by the research in ["LLM-based Semantic File System for Large Codebases
 - 💾 **Multiple Backends**: Memory and persistent disk backends with semantic indexing
 - 🔒 **Security Controls**: Path validation, sandboxing, and permission systems
 
+## 🚀 For LLM Agents: Quick Start Guide
+
+**New to PackFS? Multiple projects have reported agents going down wrong usage paths.**
+
+👉 **[LLM Agent Usage Guide](./LLM_AGENT_GUIDE.md)** - Copy-paste examples, common patterns, and pitfall solutions specifically designed for AI agents.
+
 ## Installation
 
 ```bash
@@ -235,6 +241,36 @@ While semantic operations are the primary focus, PackFS maintains strong securit
 - File size limits and extension controls
 - Permission-based access control
 - Rate limiting for agent protection
+
+## 🔧 Troubleshooting
+
+### Common Issues for LLM Agents
+
+**Import errors**: Use framework-specific paths
+```typescript
+// ✅ Correct
+import { createMastraSemanticToolSuite } from 'packfs-core/mastra';
+// ❌ Wrong  
+import { createMastraSemanticToolSuite } from 'packfs-core';
+```
+
+**"Cannot access .data" errors**: v0.2.3 uses flat structure
+```typescript
+// ✅ v0.2.3
+console.log(result.content);
+// ❌ v0.1.x 
+console.log(result.data.content);
+```
+
+**Path not found errors**: Use absolute paths for `workingDirectory`
+```typescript
+// ✅ Correct
+workingDirectory: '/home/user/project'  // or process.cwd()
+// ❌ Wrong
+workingDirectory: './project'
+```
+
+See [LLM_AGENT_GUIDE.md](./LLM_AGENT_GUIDE.md) for complete troubleshooting guide.
 
 ## Context Network Documentation
 
